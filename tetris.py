@@ -21,7 +21,7 @@ top_left_x = (s_width - play_width) // 2
 top_left_y = s_height - play_height
 
 
-# SHAPE FORMATS
+
 
 S = [['.....',
       '.....',
@@ -213,8 +213,6 @@ def draw_grid(surface, row, col):
 
 
 def clear_rows(grid, locked):
-    # need to see if row is clear the shift every other row above down one
-
     inc = 0
     for i in range(len(grid)-1,-1,-1):
         row = grid[i]
@@ -326,12 +324,6 @@ def main():
                     if not valid_space(current_piece, grid):
                         current_piece.y -= 1
 
-                '''if event.key == pygame.K_SPACE:
-                    while valid_space(current_piece, grid):
-                        current_piece.y += 1
-                    current_piece.y -= 1
-                    print(convert_shape_format(current_piece))'''  # todo fix
-
         shape_pos = convert_shape_format(current_piece)
 
      
@@ -369,7 +361,7 @@ def main_menu():
     run = True
     while run:
         win.fill((0,0,0))
-        draw_text_middle('Press any key to begin.', 60, (255, 255, 255), win)
+        draw_text_middle('Press any key to start.', 60, (255, 255, 255), win)
         pygame.display.update()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
